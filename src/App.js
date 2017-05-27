@@ -1,34 +1,32 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+import Home from './Home.js';
+import Item from './Item.js';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {on: true};
-
-    this.toggleOnOff = this.toggleOnOff.bind(this);
-  }
-
-  toggleOnOff() {
-    this.setState(prevState => ({
-      on: !prevState.on
-    }));
-  }
-
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <Router>
+        <div className="App">
+          <div className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h2>Welcome to React</h2>
+          </div>
+
+          <Link to="/">Home</Link> |&nbsp;
+          <Link to="/item/10">Item 10</Link>
+
+          <Route exact path="/" component={Home} />
+          <Route path="/item/:itemId" component={Item} />
+
         </div>
-        <p className="App-intro" onClick={this.toggleOnOff}>
-          To get started, edit <code>src/App.js</code> and save to reload.
-          <br/>{this.state.on ? 'ON' : 'OFF'}
-          <br/>{this.props.message}
-        </p>
-      </div>
+      </Router>
     );
   }
 }
