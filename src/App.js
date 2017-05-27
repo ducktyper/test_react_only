@@ -26,6 +26,7 @@ class App extends Component {
         <p className="App-intro" onClick={this.toggleOnOff}>
           To get started, edit <code>src/App.js</code> and save to reload.
           <br/>{this.state.on ? 'ON' : 'OFF'}
+          <br/>{this.props.message}
         </p>
       </div>
     );
