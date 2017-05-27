@@ -6,3 +6,8 @@ Install `React Developer Tools` to Chrome
 
 # Install react-router-dom using yarn
 yarn add react-router-dom
+
+# Install redux
+yarn add redux
+yarn add react-redux
+yarn add react-devtools -D
